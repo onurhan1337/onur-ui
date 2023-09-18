@@ -1,82 +1,64 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { Button, ButtonProps } from '../src/components/Button';
+import { Button, ButtonProps } from '../src/components/Button/Button';
+import { Flame } from 'lucide-react';
 
 export default {
   title: 'Components/Button',
   component: Button,
-  argTypes: {
-    variant: {
-      control: { type: 'radio', options: ['filled', 'outlined'] },
-    },
-    color: {
-      control: { type: 'radio', options: ['primary', 'secondary'] },
-    },
-    size: {
-      control: { type: 'radio', options: ['sm', 'md', 'lg'] },
-    },
-  },
 } as Meta;
 
-export const Colors = (args: ButtonProps) => (
-  <div className="flex flex-col space-y-4 mt-8">
-    <div>
-      <Button {...args} color="primary">
-        Outlined
-      </Button>
-    </div>
-    <div>
-      <Button {...args} color="secondary">
-        Filled
-      </Button>
-    </div>
-  </div>
+export const DefaultButton = (args: ButtonProps) => (
+  <Button {...args}>{args.title}</Button>
 );
 
-Colors.args = {
-  variant: 'filled',
+DefaultButton.args = {
+  title: 'Think Different',
+  variant: 'default',
+  size: 'default',
+  rounded: 'default',
+  asChild: false,
 };
 
-export const Variants = (args: ButtonProps) => (
-  <div className="flex flex-col space-y-4 mt-8">
-    <div>
-      <Button {...args} variant="outlined">
-        Outlined
-      </Button>
-    </div>
-    <div>
-      <Button {...args} variant="filled">
-        Filled
-      </Button>
-    </div>
-  </div>
+export const ButtonAsChild = (args: ButtonProps) => (
+  <Button {...args}>
+    <Button>{args.title}</Button>
+  </Button>
 );
 
-Variants.args = {
-  color: 'primary',
+ButtonAsChild.args = {
+  title: 'You are on fire!',
+  variant: 'default',
+  size: 'default',
+  rounded: 'default',
+  asChild: true,
 };
 
-export const Sizes = (args: ButtonProps) => (
-  <div className="flex flex-col space-y-4 mt-8">
-    <div>
-      <Button {...args} size="sm">
-        Small
-      </Button>
-    </div>
-    <div>
-      <Button {...args} size="md">
-        Medium
-      </Button>
-    </div>
-    <div>
-      <Button {...args} size="lg">
-        Large
-      </Button>
-    </div>
-  </div>
+export const ButtonWithIcon = (args: ButtonProps) => (
+  <Button {...args}>
+    <Flame />
+    {args.title}
+  </Button>
 );
 
-Sizes.args = {
-  variant: 'filled',
-  color: 'primary',
+ButtonWithIcon.args = {
+  title: 'You are on fire!',
+  variant: 'default',
+  size: 'default',
+  rounded: 'default',
+  asChild: false,
+};
+
+export const ButtonWithIconOnly = (args: ButtonProps) => (
+  <Button {...args}>
+    <Flame />
+  </Button>
+);
+
+ButtonWithIconOnly.args = {
+  title: 'You are on fire!',
+  variant: 'default',
+  size: 'icons',
+  rounded: 'default',
+  asChild: false,
 };

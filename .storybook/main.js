@@ -1,8 +1,10 @@
 module.exports = {
-  stories: ['../stories/**/*.stories.@(ts|tsx|js|jsx)'],
+  stories: ['../stories/**/*.stories.@(ts|tsx|js|jsx|mdx)'],
 
   addons: [
     '@storybook/addon-links',
+    '@storybook/addon-a11y',
+    '@storybook/addon-docs',
     '@storybook/addon-essentials',
     {
       name: '@storybook/addon-styling',
