@@ -1,5 +1,6 @@
 import { ArgsTable, Meta, Story } from '@storybook/addon-docs';
 import { Button } from '../src/components/Button/Button.tsx';
+import { Heart } from 'lucide-react';
 
 <Meta title={'Components/Button'} />
 
@@ -23,4 +24,112 @@ Add the `Button` component to your `@/src/components/Button` folder and import i
 import { Button } from '@/src/components/Button';
 
 <Button>Click me</Button>;
+```
+
+# API
+
+If an element don't have <b>default value</b>, you can not pass it to the component.
+
+<ArgsTable of={Button} />
+
+## Default Button
+
+<Button>Button</Button>
+<br />
+<br />
+
+### Code
+
+```jsx
+<Button>Click me</Button>
+```
+
+## Primary Button
+
+<Button variant="primary">Button</Button>
+<br />
+<br />
+
+### Code
+
+```jsx
+<Button variant="primary">Click me</Button>
+```
+
+## Button As Child
+
+All Radix primitive parts that render a DOM element accept an asChild prop. When asChild
+is set to true, Radix will not render a default DOM element, instead cloning the part's
+child and passing it the props and behavior required to make it functional. For more details: click [here](https://www.radix-ui.com/primitives/docs/guides/composition)
+
+<Button asChild>
+  <Button>Button</Button>
+</Button>
+<br />
+<br />
+
+### Code
+
+```jsx
+<Button asChild>
+  <Button>Click me</Button>
+</Button>
+```
+
+## Button Icon Only
+
+<Button size="icons">
+  <Heart size={16} />
+</Button>
+<br />
+<br />
+
+### Code
+
+```jsx
+import { Heart } from 'lucide-react';
+
+<Button size="icons">
+  <Heart size={16} />
+</Button>;
+```
+
+## Button With Icon
+
+<Button>
+  <Heart size={16} />
+  Button
+</Button>
+<br />
+<br />
+
+### Code
+
+```jsx
+import { Heart } from 'lucide-react';
+
+<Button>
+  <Heart size={16} />
+  Button
+</Button>;
+```
+
+## Attention Buttons
+
+<div className="flex items-center justify-start space-x-4">
+  <Button variant="destructive">Destructive</Button>
+  <Button variant="warning">Warning</Button>
+  <Button variant="success">Succes</Button>
+</div>
+<br />
+<br />
+
+### Code
+
+```jsx
+<div className="flex items-center justify-start space-x-4">
+  <Button variant="destructive">Destructive</Button>
+  <Button variant="warning">Warning</Button>
+  <Button variant="success">Succes</Button>
+</div>
 ```
