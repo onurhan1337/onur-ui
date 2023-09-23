@@ -36,7 +36,7 @@ ButtonAsChild.args = {
 
 export const ButtonWithIcon = (args: ButtonProps) => (
   <Button {...args}>
-    <Flame />
+    <Flame size={16} />
     {args.title}
   </Button>
 );
